@@ -11,14 +11,14 @@ app.get('/api', (req, res) => {
         "current_day": Day_Names[new Date().getDay()],
         "utc_time": new Date().toISOString(),
         "track": track,
-        "github_file_url": "https://github.com/username/repo/blob/main/file_name.ext",
-        "github_repo_url": "https://github.com/username/repo",
+        "github_file_url": "https://github.com/AhindraD/hngx-one-backend/blob/main/server.js",
+        "github_repo_url": "https://github.com/AhindraD/hngx-one-backend",
         "status_code": 200
     }
     try {
         res.status(200).json(response);
     } catch (e) {
-        console.log(e);
+        res.status(500).json(e);
     }
 })
 
