@@ -7,10 +7,14 @@ app.get('/api', (req, res) => {
     const name = req.query.slack_name;
     const track = req.query.track;
     const Day_Names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    const date = new Date();
+    const day = Day_Names[date.getDay()];
+    const utc = date.toISOString().replace(/[.]\d+/, '');
     const response = {
         "slack_name": name,
-        "current_day": Day_Names[new Date().getDay()],
-        "utc_time": new Date().toISOString(),
+        "current_day": day,
+        "utc_time": utc,
         "track": track,
         "github_file_url": "https://github.com/AhindraD/hngx-one-backend/blob/main/server.js",
         "github_repo_url": "https://github.com/AhindraD/hngx-one-backend",
