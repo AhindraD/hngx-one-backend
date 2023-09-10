@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 //http://example.com/api?slack_name=example_name&track=backend
+//http://localhost:8000/api?slack_name=ahindra&track=backend
 app.get('/api', (req, res) => {
     const name = req.query.slack_name;
     const track = req.query.track;
